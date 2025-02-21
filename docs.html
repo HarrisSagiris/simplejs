@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleJS Documentation</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --code-bg: #f6f8fa;
+            --warning-bg: #fff3cd;
+            --warning-border: #ffc107;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: #1f2937;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+        }
+
+        pre {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+
+        .warning {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1.5rem 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: var(--code-bg);
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        ol, ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>SimpleJS (SJS) Documentation</h1>
+    
+    <h2>Introduction</h2>
+    <p>SimpleJS (SJS) is a simplified programming language that compiles to JavaScript. It provides an intuitive syntax while maintaining full JavaScript compatibility.</p>
+
+    <h2 id="installation">Installation</h2>
+    <ol>
+        <li>Download SimpleJS-Setup.msi from the releases page</li>
+        <li>Run the installer</li>
+        <li>Verify installation:</li>
+    </ol>
+    <pre><code>sjs --version</code></pre>
+
+    <h2 id="syntax">Basic Syntax</h2>
+    <p>SJS uses simplified commands that compile to standard JavaScript:</p>
+
+    <h3>Basic Commands</h3>
+    <pre><code>// Printing
+print "Hello World"
+
+// Loops
+repeat 5 times {
+    print "Hello"
+}
+
+// User Input
+name = input "Enter your name:"</code></pre>
+
+    <h3>Imports and Exports</h3>
+    <pre><code>// Importing
+import express from "express"
+import { useState } from "react"
+
+// Exporting
+export function myFunction() {
+    // Function code
+}</code></pre>
+
+    <h2 id="compilation">Compilation Process</h2>
+    <p>The SJS compiler performs the following steps:</p>
+    <ol>
+        <li>Lexical analysis of SJS code</li>
+        <li>Syntax transformation using regex patterns</li>
+        <li>Special handling for loops, database operations, and HTTP requests</li>
+        <li>JavaScript code generation</li>
+    </ol>
+
+    <h2 id="runtime">Runtime Environment</h2>
+    <p>The SJS runtime environment provides:</p>
+    <ul>
+        <li>Automatic dependency injection (axios, mongoose)</li>
+        <li>Global error handling</li>
+        <li>Isolated execution context</li>
+        <li>Built-in performance optimization</li>
+    </ul>
+
+    <h2 id="examples">Advanced Examples</h2>
+
+    <h3>Full Stack Application</h3>
+    <pre><code>// Server setup
+import express from "express"
+const app = new express()
+
+// Database connection
+connect to mongodb://localhost/myapp
+
+// Define model
+const User = {
+    name: String,
+    email: String
+}
+
+// API endpoints
+app.post("/users", async (req) => {
+    const userData = req.body
+    save userData
+    print "User saved"
+})
+
+app.get("/users", async () => {
+    const users = find all users
+    return users
+})
+
+// Start server
+app.listen(3000)</code></pre>
+
+    <h2 id="api">API Reference</h2>
+
+    <h3>Built-in Commands</h3>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>SJS Command</th>
+            <th>JavaScript Equivalent</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>print</td>
+            <td>console.log</td>
+            <td>Output to console</td>
+        </tr>
+        <tr>
+            <td>input</td>
+            <td>prompt</td>
+            <td>User input</td>
+        </tr>
+        <tr>
+            <td>repeat</td>
+            <td>for</td>
+            <td>Loop construct</td>
+        </tr>
+        <tr>
+            <td>connect</td>
+            <td>mongoose.connect</td>
+            <td>Database connection</td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td>axios.get</td>
+            <td>HTTP GET request</td>
+        </tr>
+        <tr>
+            <td>post</td>
+            <td>axios.post</td>
+            <td>HTTP POST request</td>
+        </tr>
+    </table>
+
+    <div class="warning">
+        <strong>Important Note:</strong> SJS files must have the .sjs extension and be run using the SJS compiler:
+        <pre><code>sjs myfile.sjs</code></pre>
+    </div>
+
+    <h3>Development Tools</h3>
+    <ul>
+        <li>VSCode Extension: Syntax highlighting and IntelliSense for .sjs files</li>
+        <li>SJS CLI: Command-line tools for compilation and execution</li>
+        <li>Debug Tools: Built-in source map support for debugging</li>
+    </ul>
+
+    <footer>
+        <p>For more information, visit the <a href="https://github.com/simplejs/docs">official documentation</a> or join our <a href="https://discord.gg/simplejs">Discord community</a>.</p>
+    </footer>
+</body>
+</html>
