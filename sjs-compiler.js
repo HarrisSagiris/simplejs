@@ -136,6 +136,10 @@ class SJSRunner {
 
             // Execute in isolated context
             eval(finalCode);
+            
+            // Keep console open until user input
+            console.log("Press any key to exit...");
+            process.stdin.read();
         } catch (error) {
             console.error('\x1b[31mError executing SJS file:\x1b[0m', error.message);
             console.error('\x1b[33mStack trace:\x1b[0m', error.stack);
@@ -149,7 +153,7 @@ if (require.main === module) {
     const filename = process.argv[2];
     if (!filename) {
         console.error('\x1b[31mError: Please provide a .sjs file to run\x1b[0m');
-        console.log('Usage: node sjs-compiler.js <filename>.sjs');
+        console.log('Usage: sjs <filename>.sjs');
         process.exit(1);
     }
 
